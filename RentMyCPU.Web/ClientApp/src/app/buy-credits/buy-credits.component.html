@@ -1,0 +1,19 @@
+<app-layout *ngIf="!isLoading">
+  <p appHeader class="header">Buy credits</p>
+  <div appContent class="col content-centered">
+    <p>
+      To give tasks to compute to the network, you can buy additional credits. (10€ for 70 credits)
+    </p>
+    <div class="text-center">
+      <button class="btn btn-primary" style="background: #1b80f5; border-radius: 19px" (click)="buyCredits()">
+        Buy
+      </button>
+    </div>
+  </div>
+</app-layout>
+
+<div style="height: 100vh; display:flex; align-items: center; justify-content: center;" *ngIf="isLoading" >
+  <div style="margin: auto">
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+</div>

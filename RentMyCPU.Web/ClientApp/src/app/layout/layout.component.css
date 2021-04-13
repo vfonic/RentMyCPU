@@ -1,0 +1,22 @@
+.hamburger-button {
+  border: 0;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  background: white;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.app-content{
+  height: 100%;
+}

@@ -1,0 +1,24 @@
+h1{
+  font-weight: bold;
+}
+
+.background-cover {
+  box-shadow: 0 6px 23px 0 rgba(0,0,0,.16);
+  background: linear-gradient(rgba(255, 255, 255, 0.85),
+              rgba(255, 255, 255, 0.85)),
+              url('https://store-images.s-microsoft.com/image/apps.6846.13763752970866333.33edba9f-8ec0-4354-b3bf-14e48c439013.811f5387-edce-4a8e-ae6f-5c299059e2cb?w=961&h=540&background=transparent&q=60&blur=32&format=jpg') center center / cover no-repeat;
+}
+
+.title-underline {
+  border-bottom: 2px #1b80f5;
+}
+
+.feature ul{
+  list-style: none;
+}
+.feature ul li{
+  padding: 10px;
+}
+.feature ul .fas{
+  margin-right: 5px;
+}

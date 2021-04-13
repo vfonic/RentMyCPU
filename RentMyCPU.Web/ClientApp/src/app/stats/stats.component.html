@@ -1,0 +1,42 @@
+<app-layout>
+  <p appHeader class="header">Statistics</p>
+  <div appContent class="col">
+    <div class="row">
+      <div class="col m-2 p-2 card-primary text-center">
+        <div class="card-primary-header">successful tasks</div>
+        <div class="card-primary-content">
+          {{numberOfSuccessfulTasks}}
+        </div>
+      </div>
+      <div class="col m-2 p-2 card-primary text-center">
+        <div class="card-primary-header">successful tasks ratio</div>
+        <div class="card-primary-content">
+          {{percentageOfSuccessfulTasks}}%
+        </div>
+      </div>
+      <div class="col m-2 p-2 card-primary text-center">
+        <div class="card-primary-header">running tasks</div>
+        <div class="card-primary-content">
+          {{runningTasksNumber}}
+        </div>
+      </div>
+      <div class="col m-2 p-2 card-primary text-center">
+        <div class="card-primary-header">workers connected</div>
+        <div class="card-primary-content">
+          {{numberOfWorkersConnected}}
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <p class="text-center col-12">Completed tasks on the network</p>
+      <app-bar-chart *ngIf="chartData && chartData.length; else noIncomingTasks" class="col-11" [data]="chartData">
+
+      </app-bar-chart>
+    </div>
+  </div>
+</app-layout>
+
+<ng-template #noIncomingTasks>
+  <p class="text-center no-items-placeholder">No tasks to show.</p>
+</ng-template>

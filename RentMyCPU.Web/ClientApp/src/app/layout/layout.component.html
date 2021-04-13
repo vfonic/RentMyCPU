@@ -1,0 +1,18 @@
+
+<div>
+  <div style="box-shadow: black 0px 0px 5px; background: white;" class="sticky">
+    <div class="d-flex flex-row align-items-center">
+      <button routerLink="/menu" class="d-md-none hamburger-button">
+        <i style="color: black;" class="fas fa-bars"></i>
+      </button>
+      <button (click)="showMenu = !showMenu" class="d-md-block d-none hamburger-button">
+        <i style="color: black;" class="fas fa-bars"></i>
+      </button>
+      <ng-content select="[appHeader]"></ng-content>
+    </div>
+  </div>
+  <div class="content row">
+    <app-menu *ngIf="showMenu" class="col-auto mt-1 d-md-block d-none"></app-menu>
+    <ng-content select="[appContent]"></ng-content>
+  </div>
+</div>

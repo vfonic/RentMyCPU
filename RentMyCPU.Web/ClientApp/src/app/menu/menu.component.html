@@ -1,0 +1,19 @@
+<div style="padding: 20px; color: black; font-family: Poppins; font-weight: 900; font-size: 12px;" class="d-md-none">
+  RentMyCPU
+</div>
+
+<div  [routerLink]="menuEntry.link" *ngFor="let menuEntry of menuEntries"
+      class="menu-entry" routerLinkActive="menu-entry-active" [routerLinkActiveOptions]="{ exact: true }">
+  <div class="menu-entry-icon-wrap">
+    <i class="fas" [ngClass]="menuEntry.icon"></i>
+  </div>
+  {{menuEntry.title}}
+  <span *ngIf="menuEntry.isNew" class="new-highlight">NEW</span>
+</div>
+<hr>
+<div (click)="logOut()" class="menu-entry">
+  <div class="menu-entry-icon-wrap">
+    <i class="fas fa-sign-out-alt"></i>
+  </div>
+  Log out
+</div>

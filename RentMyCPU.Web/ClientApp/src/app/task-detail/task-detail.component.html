@@ -1,0 +1,38 @@
+<div style="box-shadow: black 0px 0px 5px; background: white;" class="sticky">
+  <div class="d-flex flex-row align-items-center">
+    <button style="border: 0; height: 50px; width: 50px; background-color:white;" routerLink="/">
+      <i style="color: black;" class="fas fa-angle-left"></i>
+    </button>
+    <p style="margin-bottom: 0; text-overflow: ellipsis; white-space: nowrap;">Task Id: {{id}}</p>
+  </div>
+</div>
+<div class="content">
+  <div *ngFor="let task of taskList" style="padding: 5px; background-color: #F6F6F6; margin-bottom: 10px;">
+    <div class="d-flex flex-row align-items-center">
+      <div style="margin: 10px;">
+        <i [ngStyle]="{color: task.isExecuted ? (task.isSuccessful ? 'green' : 'red') : 'black'}"
+          class="{{ task.isExecuted ? (task.isSuccessful ? 'fas fa-check' : 'fas fa-times') : 'far fa-clock'}}"></i>
+      </div>
+      <div class="flex-grow-1">
+        <p style="margin-bottom: 0; ">Status:
+          {{ task.isExecuted ? (task.isSuccessful ? 'Success' : 'Failed') : 'Pending'}}</p>
+        <p style="margin-bottom: 0; " *ngIf="task.elapsedMilliseconds !== null">Elapsed time:
+          {{task.elapsedMilliseconds}}
+          ms</p>
+        <p style="margin-bottom: 0; ">Parameter: {{task.parameter}}</p>
+        <p *ngIf="task.isExecuted && task.isSuccessful"  style="margin-bottom: 0; ">Result:
+          {{ task.result }}</p>
+        <p *ngIf="task.isExecuted && !task.isSuccessful"  style="cursor: pointer; margin-bottom: 0;"
+        (click)="retry(task)">
+          <i class="fas fa-redo-alt "></i>
+          <span>
+            Retry
+          </span>
+        </p>
+      </div> 
+    </div>
+    <div style="background: white;">
+      <p style="margin: 5px; white-space: pre-line; user-select: text !important;">{{task.output}}</p>
+    </div>
+  </div>
+</div>

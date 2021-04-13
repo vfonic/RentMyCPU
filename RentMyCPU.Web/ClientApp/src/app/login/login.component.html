@@ -1,0 +1,27 @@
+<div style="height: 100vh; display:flex; align-items: center; justify-content: center;" [hidden]="!isLoading">
+    <div style="margin: auto">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+<form style="margin: 40px; max-width: 500px; margin-left: auto; margin-right: auto;" (submit)="submitLogin($event)" [hidden]="isLoading">
+    <h2 style="font-family: 'Poppins'; font-weight: 900; text-align: center;">RentMyCPU</h2>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="username"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="userName"
+            placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password"  name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password">
+    </div> 
+    <div class="col text-center">
+        <button class="btn btn-primary" style="background: #1b80f5; border-radius: 19px" >
+            Login
+        </button>
+    </div>
+    <div class="col text-center" style="margin: 10px 0px">
+        <button  type="button" routerLink="/register" class="btn btn-link">
+            Register
+        </button>
+    </div>
+</form>

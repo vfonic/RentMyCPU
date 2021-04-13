@@ -1,0 +1,73 @@
+<app-layout>
+  <div appHeader class="d-flex flex-row main-header">
+    <div [ngStyle]="{'background': isIncomingTasks ? '#1b80f5' : 'transparent'}"
+         (click)="isIncomingTasks = true;" style="cursor:pointer; padding: 2px 5px; border-radius: 13px;">
+                <span [ngStyle]="{'color': isIncomingTasks ? 'white':'black'}"
+                      style="line-height:26px; font-size:13px; font-weight: 900;">
+                    INCOMING
+                </span>
+    </div>
+    <div [ngStyle]="{'background': !isIncomingTasks ? '#1b80f5' : 'transparent'}"
+         (click)="isIncomingTasks = false;"
+         style="cursor:pointer; padding: 2px 5px; border-radius: 13px; background: transparent;">
+                <span [ngStyle]="{'color': !isIncomingTasks ? 'white':'black'}"
+                      style="line-height:26px; font-size:13px; font-weight: 900;">
+                    OUTGOING
+                </span>
+    </div>
+  </div>
+  <div appContent class="col">
+    <div>
+      <div class="d-flex justify-content-around">
+        <div class="m-2 p-2 bd-highlight flex-grow-1 text-center card-primary">
+          <div class="card-primary-header">credits</div>
+          <div class="card-primary-content">
+            {{ credits }}
+          </div>
+        </div>
+        <div class="m-2 p-2 bd-highlight flex-grow-1 text-center card-primary">
+          <div class="card-primary-header">incoming tasks</div>
+          <div class="card-primary-content">
+            {{ incomingTasks.length }}
+          </div>
+        </div>
+        <div class="m-2 p-2 bd-highlight flex-grow-1 text-center card-primary">
+          <div class="card-primary-header">outcoming tasks</div>
+          <div class="card-primary-content">
+            {{ outcomingTasks.length }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isIncomingTasks">
+      <div *ngIf="incomingTasks.length; else noIncomingTasks">
+        <div style="margin: 10px;" *ngFor="let task of incomingTasks">
+          <p style="font-weight: 900; margin-bottom: 0rem !important;">{{task.Id}}</p>
+          <p>{{task.CreationDate | date:'medium'}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isIncomingTasks">
+      <div *ngIf="outcomingTasks.length; else noOutcomingTasks"></div>
+      <div style="margin: 10px; cursor: pointer;" class="d-flex flex-row align-items-center"
+           [routerLink]="['/task', task.Id]" *ngFor="let task of outcomingTasks">
+        <div class="flex-grow-1">
+          <p style="font-weight: 900; margin-bottom: 0rem !important;">{{task.Id}}</p>
+          <p>{{task.CreationDate | date:'medium'}}</p>
+        </div>
+        <p style="color: #1b80f5; font-weight: 900; font-size: 12px;">
+          DETAILS
+        </p>
+      </div>
+    </div>
+  </div>
+</app-layout>
+
+<ng-template #noIncomingTasks>
+    <p class="text-center no-items-placeholder">No incoming tasks to show. Leave the app open to execute new tasks.</p>
+</ng-template>
+
+<ng-template #noOutcomingTasks>
+    <p class="text-center no-items-placeholder"> You can ask for new tasks to be executed on the network by clicking the
+      "Create task" button. </p>
+</ng-template>

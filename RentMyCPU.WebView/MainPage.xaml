@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="RentMyCPU.WebView.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RentMyCPU.WebView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White">
+        <ProgressRing Foreground="Black" IsActive="True" Height="60" Width="60"></ProgressRing>
+        <WebView Source="{x:Bind ApiAddress, Mode=OneWay}" NavigationCompleted="MainWebView_NavigationCompleted" NavigationStarting="MainWebView_NavigationStarting" x:Name="MainWebView" Visibility="Collapsed"></WebView> 
+        <controls:InAppNotification RequestedTheme="Light" Name="MainAppNotification"></controls:InAppNotification>
+    </Grid>
+</Page>

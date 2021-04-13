@@ -1,0 +1,31 @@
+.menu-entry {
+  cursor: pointer;
+  padding: 15px;
+  color: black;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .menu-entry{
+    border-radius: 0px 40px 40px 0px ;
+    max-width: 200px;
+  }
+}
+
+.menu-entry:hover,.menu-entry-active{
+  background: #f6f6f6;
+}
+
+.menu-entry-icon-wrap {
+  width: 40px;
+  display: inline-block;
+}
+
+.new-highlight {
+  color: red;
+  font-size: 10px;
+  position: relative;
+  top: -10px;
+}

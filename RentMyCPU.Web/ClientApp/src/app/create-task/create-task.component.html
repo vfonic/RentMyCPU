@@ -1,0 +1,45 @@
+<app-layout>
+  <p appHeader class="header">Create Task</p>
+  <div appContent class="col content-centered">
+    <p>
+      To add a new task, please provide a valid .wasm file with one exported method
+      <span style="font-weight: 900;">int run(int param)</span>, which will be the entry point for your program.
+      You can create a new wasm file with <a target="_blank" href="https://webassembly.studio/">Webassembly Studio</a>.
+    </p>
+    <div class="form-group">
+      <label for="fileInput">Choose wasm file:</label>
+      <input type="file" accept=".wasm" class="form-control-range" id="fileInput"
+             (change)="handleInputChange($event)">
+    </div>
+    <p>
+      Run the task on <span class="bold">{{ numberOfNodes }}</span> nodes. An int parameter called
+      <span class="bold">param</span> will be passed to your "run" method to indicate on which node your
+      task
+      is running.
+    </p>
+    <div class="form-group">
+      <label for="numberOfNodesInput">Number of nodes:</label>
+      <input type="range" min="1" max="20" step="1" [(ngModel)]="numberOfNodes" class="form-control-range"
+             id="numberOfNodesInput">
+    </div>
+    <p>
+      Cost: 1 credit/hour/node.
+    </p>
+    <p>
+      If the computed task used more credits than you have, you will not be able to see the result of your task.
+    </p>
+    <p>
+      Tip: you can print char to the output of the program by including the following function inside your .c file (and
+      calling it) :
+      <span class="bold">extern void writechar(char c);</span>
+    </p>
+    <p class="text-danger">
+      {{ error }}
+    </p>
+    <div class="col text-center">
+      <button class="btn btn-primary" style="background: #1b80f5; border-radius: 19px" (click)="confirmTask()">
+        Go
+      </button>
+    </div>
+  </div>
+</app-layout>

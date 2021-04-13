@@ -1,0 +1,61 @@
+body {
+  min-height: 350px;
+  color: #4c4e4d;
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+  overflow-x: hidden;
+}
+*{
+  user-select: none;
+  outline: none;
+}
+
+input[type=text]{
+  user-select: text;
+}
+
+
+.content-centered {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-primary{
+  background: #f6f6f6;
+}
+
+.card-primary-header {
+  font-size: 10px;
+}
+
+.card-primary-content {
+  color: black;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.header {
+  margin-bottom: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+app-bar-chart {
+  height: inherit;
+  width: inherit;
+}
+
+app-bar-chart .bar {
+  fill: #1b80f5;
+}
+
+.no-items-placeholder {
+  margin: auto;
+  color: gray;
+  font-size: smaller;
+}
+
+.bold {
+  font-weight: 900;
+}

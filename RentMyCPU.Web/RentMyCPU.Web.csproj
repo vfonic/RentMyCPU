@@ -1,0 +1,153 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20190629085717_WorkerAndWorkerTaskCorrelation.cs" />
+    <Compile Remove="Data\Migrations\20190629085717_WorkerAndWorkerTaskCorrelation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\api.service.ts" />
+    <None Remove="ClientApp\src\app\app-routing.module.ts" />
+    <None Remove="ClientApp\src\app\buy-credits\buy-credits.component.css" />
+    <None Remove="ClientApp\src\app\buy-credits\buy-credits.component.html" />
+    <None Remove="ClientApp\src\app\buy-credits\buy-credits.component.ts" />
+    <None Remove="ClientApp\src\app\create-task\create-task.component.css" />
+    <None Remove="ClientApp\src\app\create-task\create-task.component.html" />
+    <None Remove="ClientApp\src\app\create-task\create-task.component.ts" />
+    <None Remove="ClientApp\src\app\guard.service.ts" />
+    <None Remove="ClientApp\src\app\help\help.component.css" />
+    <None Remove="ClientApp\src\app\help\help.component.html" />
+    <None Remove="ClientApp\src\app\help\help.component.ts" />
+    <None Remove="ClientApp\src\app\loading\loading.component.css" />
+    <None Remove="ClientApp\src\app\loading\loading.component.html" />
+    <None Remove="ClientApp\src\app\loading\loading.component.ts" />
+    <None Remove="ClientApp\src\app\login\login.component.css" />
+    <None Remove="ClientApp\src\app\login\login.component.html" />
+    <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\main\main.component.css" />
+    <None Remove="ClientApp\src\app\main\main.component.html" />
+    <None Remove="ClientApp\src\app\main\main.component.ts" />
+    <None Remove="ClientApp\src\app\menu\menu.component.css" />
+    <None Remove="ClientApp\src\app\menu\menu.component.html" />
+    <None Remove="ClientApp\src\app\menu\menu.component.ts" />
+    <None Remove="ClientApp\src\app\notification.service.ts" />
+    <None Remove="ClientApp\src\app\register\register.component.css" />
+    <None Remove="ClientApp\src\app\register\register.component.html" />
+    <None Remove="ClientApp\src\app\register\register.component.ts" />
+    <None Remove="ClientApp\src\app\shared\requestortaskdetail.ts" />
+    <None Remove="ClientApp\src\app\shared\task.ts" />
+    <None Remove="ClientApp\src\app\shared\token.ts" />
+    <None Remove="ClientApp\src\app\shared\workertaskdetail.ts" />
+    <None Remove="ClientApp\src\app\storage.service.ts" />
+    <None Remove="ClientApp\src\assets\webfonts\fa-brands-400.svg" />
+    <None Remove="ClientApp\src\assets\webfonts\fa-regular-400.svg" />
+    <None Remove="ClientApp\src\assets\webfonts\fa-solid-900.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\src\app\buy-credits\buy-credits.component.css" />
+    <Content Include="ClientApp\src\app\buy-credits\buy-credits.component.html" />
+    <Content Include="ClientApp\src\app\create-task\create-task.component.css" />
+    <Content Include="ClientApp\src\app\create-task\create-task.component.html" />
+    <Content Include="ClientApp\src\app\download\download.component.css" />
+    <Content Include="ClientApp\src\app\download\download.component.html" />
+    <Content Include="ClientApp\src\app\help\help.component.css" />
+    <Content Include="ClientApp\src\app\help\help.component.html" />
+    <Content Include="ClientApp\src\app\layout\layout.component.css" />
+    <Content Include="ClientApp\src\app\layout\layout.component.html" />
+    <Content Include="ClientApp\src\app\loading\loading.component.css" />
+    <Content Include="ClientApp\src\app\loading\loading.component.html" />
+    <Content Include="ClientApp\src\app\login\login.component.css" />
+    <Content Include="ClientApp\src\app\login\login.component.html" />
+    <Content Include="ClientApp\src\app\main\main.component.css" />
+    <Content Include="ClientApp\src\app\main\main.component.html" />
+    <Content Include="ClientApp\src\app\menu\menu.component.css" />
+    <Content Include="ClientApp\src\app\menu\menu.component.html" />
+    <Content Include="ClientApp\src\app\register\register.component.css" />
+    <Content Include="ClientApp\src\app\register\register.component.html" />
+    <Content Include="ClientApp\src\app\stats\bar-chart\bar-chart.component.css" />
+    <Content Include="ClientApp\src\app\stats\bar-chart\bar-chart.component.html" />
+    <Content Include="ClientApp\src\app\stats\stats.component.css" />
+    <Content Include="ClientApp\src\app\stats\stats.component.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RentMyCPU.Shared\RentMyCPU.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\api.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\buy-credits\buy-credits.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\create-task\create-task.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\download\download.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\guard.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\help\help.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\layout\layout.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\loading\loading.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\main\main.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\menu\menu.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\notification.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\register\register.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\requestortaskdetail.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\task.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\token.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\workertaskdetail.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\stats\bar-chart\bar-chart.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\stats\stats.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\storage.service.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
